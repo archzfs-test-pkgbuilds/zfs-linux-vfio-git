@@ -17,15 +17,15 @@
 pkgbase="zfs-linux-vfio-git"
 pkgname=("zfs-linux-vfio-git" "zfs-linux-vfio-git-headers")
 
-pkgver=2018.05.26.r3492.g3e5300e0e.4.16.10.1
+pkgver=2018.05.30.r4572.g93491c4bb.4.16.10.1
 pkgrel=1
-makedepends=("linux-vfio-headers=4.16.10-1" "git" "spl-linux-vfio-git-headers")
+makedepends=("linux-vfio-headers=4.16.10-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=93491c4bb9dcc755f74d266f2aeb5a2d3cf94432")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "spl-linux-vfio-git" "zfs-utils-common-git>=2018.05.26.r3492.g3e5300e0e" "linux-vfio=4.16.10-1")
+depends=("kmod" "zfs-utils-common-git=2018.05.30.r4572.g93491c4bb" "linux-vfio=4.16.10-1")
 
 build() {
     cd "${srcdir}/zfs"
@@ -43,8 +43,7 @@ package_zfs-linux-vfio-git() {
     install=zfs.install
     provides=("zfs")
     groups=("archzfs-linux-vfio-git")
-    conflicts=('zfs-linux-vfio')
-    replaces=("zfs-git")
+    conflicts=('zfs-linux-vfio' 'spl-linux-vfio-git')
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     cp -r "${pkgdir}"/{lib,usr}
