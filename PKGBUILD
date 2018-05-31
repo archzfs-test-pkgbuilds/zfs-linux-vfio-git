@@ -44,6 +44,7 @@ package_zfs-linux-vfio-git() {
     provides=("zfs")
     groups=("archzfs-linux-vfio-git")
     conflicts=('zfs-linux-vfio' 'spl-linux-vfio-git')
+    replaces=("spl-linux-vfio-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     cp -r "${pkgdir}"/{lib,usr}
