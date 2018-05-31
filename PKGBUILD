@@ -18,7 +18,7 @@ pkgbase="zfs-linux-vfio-git"
 pkgname=("zfs-linux-vfio-git" "zfs-linux-vfio-git-headers")
 
 pkgver=2018.05.30.r4572.g93491c4bb.4.16.10.1
-pkgrel=1
+pkgrel=2
 makedepends=("linux-vfio-headers=4.16.10-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
