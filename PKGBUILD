@@ -17,15 +17,15 @@
 pkgbase="zfs-linux-vfio-git"
 pkgname=("zfs-linux-vfio-git" "zfs-linux-vfio-git-headers")
 
-pkgver=2018.07.09.r4628.ga7ed98d8b.4.17.3.1
+pkgver=2018.07.10.r4630.g00c405b4b.4.17.3.1
 pkgrel=1
 makedepends=("linux-vfio-headers=4.17.3-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=a7ed98d8b5cefbd62ed39b9cf25860dad3922861")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=00c405b4b5e89741731daa59e23b9a7dabd41c32")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "zfs-utils-common-git=2018.07.09.r4628.ga7ed98d8b" "linux-vfio=4.17.3-1")
+depends=("kmod" "zfs-utils-common-git=2018.07.10.r4630.g00c405b4b" "linux-vfio=4.17.3-1")
 
 build() {
     cd "${srcdir}/zfs"
