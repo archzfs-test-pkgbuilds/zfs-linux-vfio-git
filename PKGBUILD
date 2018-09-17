@@ -48,7 +48,7 @@ package_zfs-linux-vfio-git() {
     install=zfs.install
     provides=("zfs" "spl")
     groups=("archzfs-linux-vfio-git")
-    conflicts=("zfs-dkms" "zfs-dkms-git"'zfs-linux-vfio' 'spl-linux-vfio-git' 'spl-linux-vfio' "spl-dkms" "spl-dkms-git")
+    conflicts=("zfs-dkms" "zfs-dkms-git" 'zfs-linux-vfio' 'spl-linux-vfio-git' 'spl-linux-vfio' "spl-dkms" "spl-dkms-git")
     replaces=("spl-linux-vfio-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
