@@ -17,8 +17,8 @@
 #
 pkgbase="zfs-linux-vfio-git"
 pkgname=("zfs-linux-vfio-git" "zfs-linux-vfio-git-headers")
-_commit='145c88fb7bfb7e5941a0994daa3d9f4401a167a1'
-_zfsver="2018.09.18.r4729.g145c88fb7"
+_commit='af2e8411dacbc694b1aaf9074e68a9d12270e74c'
+_zfsver="2018.11.12.r4829.gaf2e8411d"
 _kernelver="4.18.5.arch1-1"
 _extramodules="${_kernelver/.arch/-arch}-vfio"
 
@@ -30,7 +30,7 @@ url="http://zfsonlinux.org/"
 source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "zfs-utils-common-git=${_zfsver}" "linux-vfio=${_kernelver}")
+depends=("kmod" "zfs-utils-git=${_zfsver}" "linux-vfio=${_kernelver}")
 
 build() {
     cd "${srcdir}/zfs"
@@ -48,7 +48,7 @@ package_zfs-linux-vfio-git() {
     install=zfs.install
     provides=("zfs" "spl")
     groups=("archzfs-linux-vfio-git")
-    conflicts=("zfs-dkms" "zfs-dkms-git" 'zfs-linux-vfio' 'spl-linux-vfio-git' 'spl-linux-vfio' "spl-dkms" "spl-dkms-git")
+    conflicts=("zfs-dkms" "zfs-dkms-git" "zfs-dkms-rc" 'zfs-linux-vfio' 'spl-linux-vfio-git' 'spl-linux-vfio' "spl-dkms" "spl-dkms-git")
     replaces=("spl-linux-vfio-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
@@ -61,7 +61,7 @@ package_zfs-linux-vfio-git() {
 package_zfs-linux-vfio-git-headers() {
     pkgdesc="Kernel headers for the Zettabyte File System."
     provides=("zfs-headers" "spl-headers")
-    conflicts=("zfs-headers" "zfs-dkms" "zfs-dkms-git" "spl-dkms" "spl-dkms-git" "spl-headers")
+    conflicts=("zfs-headers" "zfs-dkms" "zfs-dkms-git" "zfs-dkms-rc" "spl-dkms" "spl-dkms-git" "spl-headers")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     rm -r "${pkgdir}/lib"
